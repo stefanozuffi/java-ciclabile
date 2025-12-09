@@ -36,7 +36,7 @@ public class Ciclabile {
         this.currentIndex = newIndex;
     }
 
-    //Iterator Methods
+    //Iterator Methods (forward)
     private boolean hasNextElement() {
         return currentIndex < innerList.length - 1;
     }
@@ -56,6 +56,27 @@ public class Ciclabile {
         System.out.println("We finished the array! Starting again from first element...");
         currentIndex = 0;
         return innerList[0];
+    }
+
+    //Iterator Methods (backwards)
+    private boolean hasPrevElement() {
+        return currentIndex > 0;
+    }
+
+    public int getPrevElement() {
+        if (innerList.length == 0) {
+            throw new NoSuchElementException("Array is empty");
+        }
+
+        else if (this.hasPrevElement()) {
+            int currentValue = this.innerList[currentIndex - 1];
+            currentIndex -= 1;
+            return currentValue;
+        }
+
+        System.out.println("We finished the array! Starting again from last element...");
+        currentIndex = this.innerList.length;
+        return innerList[currentIndex];
     }
 
     //forEach method
@@ -86,6 +107,12 @@ public class Ciclabile {
         }
 
         return res;
+    }
+
+    //.reduce() method
+    public int reduce(Function<Integer, Integer> f) {
+        
+        return 0;
     }
 
     //Add element method 
