@@ -7,6 +7,7 @@ public class Ciclabile {
     //Constructors
     public Ciclabile(int[] newArray) {
         this.innerList = newArray;
+        this.currentIndex = -1;
     }
 
     //Getter/Setter
@@ -28,7 +29,7 @@ public class Ciclabile {
 
     //Iterator Methods
     private boolean hasNextElement() {
-        return currentIndex <= innerList.length;
+        return currentIndex < innerList.length - 1;
     }
 
     public int getNextElement() {
@@ -38,8 +39,22 @@ public class Ciclabile {
             return currentValue;
         }
         System.out.println("We finished the array! Starting again from first element...");
+        currentIndex = 0;
         return innerList[0];
 
+    }
+
+    //ToString
+    @Override
+    public String toString() {
+        String res = "[";
+
+        for (int i : this.innerList) {
+            res += " " + i + " ";
+        }
+
+        res += "]";
+        return res;
     }
 
 }
