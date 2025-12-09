@@ -109,10 +109,20 @@ public class Ciclabile {
         return res;
     }
 
-    //.reduce() method
-    public int reduce(Function<Integer, Integer> f) {
+    //.reduce() method --- to improve and generalize!
+    public int reduce(BiFunction<Integer, Integer, Integer> f) {
+
+        if (innerList.length == 0) {
+            throw new NoSuchElementException("Array is empty");
+        }
+
+        int res = this.innerList[0];
         
-        return 0;
+        for (int x : this.innerList) {
+            res = f.apply(res, x);
+        }
+
+        return res;
     }
 
     //Add element method 
