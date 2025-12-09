@@ -11,5 +11,24 @@ public class Main {
         System.out.println(iteration.getNextElement());
         System.out.println(iteration.getNextElement());
         System.out.println(iteration.getNextElement());
+
+
+        Ciclabile iter2 = new Ciclabile();
+
+        iter2.addElement(10);
+        iter2.addElement(20);
+        iter2.addElement(30);
+        iter2.addElement(40);
+        iter2.addElement(50);
+
+        System.out.println(iter2.getNextElement());
+        System.out.println(iter2.getNextElement());
+        System.out.println(iter2.getNextElement());
+        System.out.println(iter2.getNextElement());
+        System.out.println(iter2.getNextElement());
+        System.out.println(iter2.getNextElement());
+        System.out.println(iter2.getNextElement());
+        System.out.println(iter2.getNextElement());
+        
     }
 }

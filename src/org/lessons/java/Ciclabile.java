@@ -5,6 +5,11 @@ public class Ciclabile {
     private int currentIndex;
 
     //Constructors
+    public Ciclabile() {
+        this.innerList = new int[0];
+        this.currentIndex = -1;
+    }
+
     public Ciclabile(int[] newArray) {
         this.innerList = newArray;
         this.currentIndex = -1;
@@ -42,6 +47,21 @@ public class Ciclabile {
         currentIndex = 0;
         return innerList[0];
 
+    }
+
+    //Add element method 
+    public void addElement(int newEl) {
+        int[] result = new int[innerList.length + 1];
+
+        for (int i = 0; i<result.length; i++) {
+            if (i == result.length - 1) {
+                result[i] = newEl;
+            } else {
+                result[i] = innerList[i];
+            }
+        }
+
+        this.setInnerList(result);
     }
 
     //ToString
