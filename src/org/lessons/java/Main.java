@@ -1,7 +1,7 @@
 package org.lessons.java;
 
 public class Main {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Ciclabile iteration = new Ciclabile(new int[] {1,2,3,4});
 
         System.out.println(iteration.toString());
@@ -29,6 +29,6 @@ public class Main {
         System.out.println(iter2.getNextElement());
         System.out.println(iter2.getNextElement());
         System.out.println(iter2.getNextElement());
-        
+
     }
 }

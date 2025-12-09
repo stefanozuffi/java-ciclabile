@@ -1,5 +1,7 @@
 package org.lessons.java;
 
+import java.util.NoSuchElementException;
+
 public class Ciclabile {
     private int[] innerList;
     private int currentIndex;
@@ -38,15 +40,20 @@ public class Ciclabile {
     }
 
     public int getNextElement() {
-        if (this.hasNextElement()) {
+
+        if (innerList.length == 0) {
+            throw new NoSuchElementException("Array is empty");
+        }
+
+        else if (this.hasNextElement()) {
             int currentValue = innerList[currentIndex+1];
             currentIndex += 1;
             return currentValue;
         }
+        
         System.out.println("We finished the array! Starting again from first element...");
         currentIndex = 0;
         return innerList[0];
-
     }
 
     //Add element method 
