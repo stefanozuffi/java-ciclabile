@@ -1,6 +1,8 @@
 package org.lessons.java;
 
 import java.util.NoSuchElementException;
+import java.util.function.*;
+
 
 public class Ciclabile {
     private int[] innerList;
@@ -50,10 +52,40 @@ public class Ciclabile {
             currentIndex += 1;
             return currentValue;
         }
-        
+
         System.out.println("We finished the array! Starting again from first element...");
         currentIndex = 0;
         return innerList[0];
+    }
+
+    //forEach method
+    public <E> void forEach(Consumer<Integer> f) {
+        for (int x : this.innerList) {
+            f.accept(x);
+        }
+    }
+
+    //.filter & .map (Extra)
+    public Ciclabile filter(Predicate<Integer> f) {
+        Ciclabile res = new Ciclabile();
+
+        for (int x : this.innerList) {
+            if (f.test(x)) {
+                res.addElement(x);
+            } 
+        }
+        
+        return res;
+    }
+
+    public Ciclabile map(Function<Integer, Integer> f) {
+        Ciclabile res = new Ciclabile();
+
+        for (int x : this.innerList) {
+            res.addElement(f.apply(x));
+        }
+
+        return res;
     }
 
     //Add element method 
